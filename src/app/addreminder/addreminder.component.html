@@ -1,0 +1,153 @@
+<mat-toolbar class="mat-elevation-z8">
+    <button mat-icon-button *ngIf="sidenav.mode === 'over'" (click)="sidenav.toggle()">
+        <mat-icon *ngIf="!sidenav.opened">
+            menu
+        </mat-icon>
+        <mat-icon *ngIf="sidenav.opened">
+            close
+        </mat-icon>
+    </button>
+    <span class="orchid">ORCHID<span class="homes">HOMES</span></span>
+</mat-toolbar>
+
+<mat-sidenav-container >
+    <mat-sidenav #sidenav="matSidenav" class="mat-elevation-z8">
+
+        <!-- <img class="avatar mat-elevation-z8" src="https://source.unsplash.com/c_GmwfHBDzk/200x200" /> -->
+
+        <h1 class="name">John Smith</h1>
+
+        <mat-divider></mat-divider>
+
+        <button mat-button class="menu-button" routerLink="/home">
+            <mat-icon>home</mat-icon>
+            <span>Home</span>
+        </button>
+        <button mat-button class="menu-button " routerLink="/members">
+            <mat-icon>person</mat-icon>
+            <span>Members</span>
+        </button>
+        <button mat-button class="menu-button" routerLink="/societyexpense">
+            <mat-icon>paid</mat-icon>
+            <span>Society Expenses</span>
+        </button>
+
+        <mat-divider></mat-divider>
+
+        <button mat-button class="menu-button" routerLink="/notices">
+            <mat-icon>note_add</mat-icon>
+            <span>Notices</span>
+        </button>
+
+        <button mat-button class="menu-button nav-active" routerLink="/reminders">
+            <mat-icon>notifications_active</mat-icon>
+            <span>Reminders</span>
+        </button>
+
+        <button mat-button class="menu-button" routerLink="/membermessage">
+            <mat-icon> message</mat-icon>
+            <span>Messages</span>
+        </button>
+
+        <mat-divider></mat-divider>
+
+        <button mat-button class="menu-button" routerLink="/logout">
+            <mat-icon>door_back</mat-icon>
+            <span>LogOut</span>
+        </button>
+
+    </mat-sidenav>
+    <mat-sidenav-content class="bg-light">
+        <!--Add Transaction Form Div Starts-->
+            <div class="content mat-elevation-z8 addTransaction" >
+            <!--Add Transaction Form Start-->
+            <div class="row">
+                <div class="col-lg-12" style="margin-top: 5%; text-align: center;" >
+                    <span class="addPayment">Add Notices</span>
+                </div>
+            </div>
+            <form style="padding-top: 2%;">
+
+                <div class="row">
+                    <div class="col-lg-1"></div>
+                    <div class="col-lg-5">
+                            <mat-form-field class="example-full-width">
+                                <mat-label>Owner Name</mat-label>
+                                <input matInput type="text" placeholder="Enter Name" required>
+                            </mat-form-field>
+                       </div>
+                    <div class="col-lg-5">
+                        <mat-form-field class="example-full-width">
+                            <mat-label>House No.</mat-label>
+                            <input matInput  type="number" placeholder="00" required>
+                        </mat-form-field>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-1"></div>
+                    <div class="col-lg-5">
+                            <mat-form-field class="example-full-width" required>
+                                <mat-label>Month</mat-label>
+                        <mat-select>
+                            <mat-option value="yes">January</mat-option>
+                            <mat-option value="no">February</mat-option>
+                            <mat-option value="yes">March</mat-option>
+                            <mat-option value="no">April</mat-option>
+                            <mat-option value="yes">May</mat-option>
+                            <mat-option value="no">June</mat-option>
+                            <mat-option value="yes">July</mat-option>
+                            <mat-option value="no">August</mat-option>
+                            <mat-option value="yes">September</mat-option>
+                            <mat-option value="no">October</mat-option>
+                            <mat-option value="yes">November</mat-option>
+                            <mat-option value="no">December</mat-option>
+                        </mat-select>
+                            </mat-form-field>
+                       </div>
+                    <div class="col-lg-5">
+                            <mat-form-field class="example-full-width">
+                                <mat-label>Transaction ID</mat-label>
+                                <input matInput type="text" placeholder="TN1234567890" required>
+                            </mat-form-field>
+                    </div>
+                </div>
+    
+                <div class="row">
+                    <div class="col-lg-1"></div>
+                    <div class="col-lg-5">
+                            <mat-form-field class="example-full-width" required>
+                                <mat-label>Payment Type</mat-label>
+                                    <mat-select>
+                                        <mat-option value="yes">Cash</mat-option>
+                                        <mat-option value="no">UPI</mat-option>
+                                        <mat-option value="yes">Cheque</mat-option>
+                                    </mat-select>
+                            </mat-form-field>
+                    </div>
+
+                    <div class="col-lg-5">
+                            <mat-form-field class="example-full-width">
+                                <mat-label>Payment Date</mat-label>
+                                <input matInput  type="date" required>
+                            </mat-form-field>
+                    </div>
+                </div>
+    
+                <div class="row" style="padding-bottom: 3%;padding-top: 3%;">
+                    <div class="col-lg-3"></div>
+                    <div class="col-lg-3">
+                        <button type="submit" name="save"  class="btn-block buttonSave" (click)="save()">Save</button>
+                    </div>
+                    <div class="col-lg-3">
+                        <button type="reset" name="cancel" class="btn-block buttonCancel" (click)="cancel()">Cancel</button>
+                    </div>
+                    <div class="col-lg-3"></div>
+                </div>
+    
+            </form>
+            <!--Add Transaction Form Ends-->
+        </div>
+        <!--Add Transaction Form Div Ends-->
+    </mat-sidenav-content>
+</mat-sidenav-container>

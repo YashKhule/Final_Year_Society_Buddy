@@ -1,0 +1,248 @@
+<mat-toolbar class="mat-elevation-z8">
+    <button mat-icon-button *ngIf="sidenav.mode === 'over'" (click)="sidenav.toggle()">
+        <mat-icon *ngIf="!sidenav.opened">
+            menu
+        </mat-icon>
+        <mat-icon *ngIf="sidenav.opened">
+            close
+        </mat-icon>
+    </button>
+    <span class="orchid">ORCHID<span class="homes">HOMES</span></span>
+</mat-toolbar>
+
+<mat-sidenav-container>
+    <mat-sidenav #sidenav="matSidenav" class="mat-elevation-z8">
+
+        <!-- <img class="avatar mat-elevation-z8" src="https://source.unsplash.com/c_GmwfHBDzk/200x200" /> -->
+
+        <h1 class="name">John Smith</h1>
+
+        <mat-divider></mat-divider>
+
+        <button mat-button class="menu-button" routerLink="/home">
+            <mat-icon>home</mat-icon>
+            <span>Home</span>
+        </button>
+        <button mat-button class="menu-button  nav-active" routerLink="/members">
+            <mat-icon>person</mat-icon>
+            <span>Members</span>
+        </button>
+        <button mat-button class="menu-button" routerLink="/societyexpense">
+            <mat-icon>paid</mat-icon>
+            <span>Society Expenses</span>
+        </button>
+
+        <mat-divider></mat-divider>
+
+        <button mat-button class="menu-button" routerLink="/notices">
+            <mat-icon>note_add</mat-icon>
+            <span>Notices</span>
+        </button>
+
+        <button mat-button class="menu-button" routerLink="/reminders">
+            <mat-icon>notifications_active</mat-icon>
+            <span>Reminders</span>
+        </button>
+
+        <button mat-button class="menu-button" routerLink="/membermessage">
+            <mat-icon> message</mat-icon>
+            <span>Messages</span>
+        </button>
+
+        <mat-divider></mat-divider>
+
+        <button mat-button class="menu-button" routerLink="/logout">
+            <mat-icon>door_back</mat-icon>
+            <span>LogOut</span>
+        </button>
+
+    </mat-sidenav>
+    <mat-sidenav-content >
+        <div class="content mat-elevation-z8">
+            <div style="padding-top: 3%;">
+                <h3 class="addmemberTitle" > ADD NEW MEMBER</h3> 
+            </div>
+            <!--Add MEmber Form Start-->
+            <form style="padding-top: 2%;" [formGroup]="requiredForm" (ngSubmmit)="saveMember()">
+            <div class="row">
+                <div class="col-lg-1"></div>
+                <div class="col-lg-6">
+                        <mat-form-field class="example-full-width">
+                            <mat-label>Name</mat-label>
+                            <input matInput type="text" placeholder="Enter Full Name " formControlName="name" >
+                        </mat-form-field>
+                   </div>
+
+                <div class="col-lg-4">
+                        <mat-form-field class="example-full-width">
+                            <mat-label>Email</mat-label>
+                            <input matInput type="email" placeholder="Ex.abc@gmail.com" formControlName="email">
+                        </mat-form-field>
+                </div>
+                <!-- <div *ngIf="requiredForm.controls['email'].invalid && requiredForm.controls['email'].touched"
+                    class="alert alert-danger">
+                    <div *ngIf="requiredForm.controls['email'].errors.required">
+                        Email is required.
+                    </div>
+                </div> -->
+
+            </div>
+
+            <div class="row">
+                <div class="col-lg-1"></div>
+                <div class="col-lg-3">
+                        <mat-form-field class="example-full-width">
+                            <mat-label>Mobile No.</mat-label>
+                            <input matInput type="number"  placeholder="1234567890" formControlName="mobile">
+                        </mat-form-field>
+                </div>
+                <div class="col-lg-3">
+                        <mat-form-field class="example-full-width">
+                            <mat-label>House No.</mat-label>
+                            <input matInput  type="number" placeholder="00" formControlName="house">
+                        </mat-form-field>
+                </div>
+                <div class="col-lg-3">
+                        <mat-form-field class="example-full-width">
+                            <mat-label>Registry Date</mat-label>
+                            <input matInput  type="date" formControlName="date">
+                        </mat-form-field>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-1"></div>
+                <div class="col-lg-4">
+                        <mat-form-field class="example-full-width">
+                            <mat-label>Ownership</mat-label>
+                            <input matInput  type="number" placeholder="nth Owner" formControlName="ownership">
+                        </mat-form-field>
+
+                        <!-- <mat-form-field>
+                            <mat-label>Ownership</mat-label>
+                            <mat-select>
+                              <mat-option value="1st Owner">1st Owner</mat-option>
+                              <mat-option value="2nd Owner">2nd Owner</mat-option>
+                              <mat-option value="3rd Owner">3rd Owner</mat-option>
+                            </mat-select>
+                          </mat-form-field>  -->
+                </div>
+                <div class="col-lg-6">
+                    <mat-form-field class="example-full-width">
+                        <mat-label>If 2nd Owner Please Mention 1st Owner Name</mat-label>
+                        <input matInput  type="text" placeholder="" formControlName="firstowner">
+                    </mat-form-field>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-1"></div>
+                <div class="col-lg-3">
+                    <mat-form-field class="example-full-width">
+                        <mat-label>Are You Authorized / RegisteredMember of Society</mat-label>
+                        <mat-select formControlName="authorized">
+                          <mat-option value="yes">YES</mat-option>
+                          <mat-option value="no">NO</mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                </div>
+                <div class="col-lg-3">
+                    <mat-form-field class="example-full-width">
+                        <mat-label>Have You Received Share Certificates</mat-label>
+                        <mat-select formControlName="sharecertificate">
+                          <mat-option value="yes">YES</mat-option>
+                          <mat-option value="no">NO</mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                </div>
+                <div class="col-lg-3">
+                    <mat-form-field class="example-full-width">
+                        <mat-label>Your Unit Occupied</mat-label>
+                        <mat-select formControlName="unit">
+                          <mat-option value="Self">SELF</mat-option>
+                          <mat-option value="Rent">RENT</mat-option>
+                          <mat-option value="Empty">EMPTY</mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-1"></div>
+                <div class="col-lg-6">
+                        <mat-form-field class="example-full-width">
+                            <mat-label>If rented please mention Name</mat-label>
+                            <input matInput type="text" placeholder="Enter Full Name" formControlName="rname">
+                        </mat-form-field>
+                   </div>
+                <div class="col-lg-4">
+                        <mat-form-field class="example-full-width">
+                            <mat-label>Mobile No of rented person</mat-label>
+                            <input matInput type="number" placeholder="1234567890" formControlName="rmobile">
+                        </mat-form-field>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-1"></div>
+                <div class="col-lg-5">
+                    <mat-form-field class="example-full-width">
+                        <mat-label>Have You Submitted Your Registry Copy to Society</mat-label>
+                        <mat-select formControlName="registrycopy">
+                          <mat-option value="yes">YES</mat-option>
+                          <mat-option value="no">NO</mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                </div>
+                <div class="col-lg-5">
+                    <mat-form-field class="example-full-width">
+                        <mat-label>Have you submit nominee details ?</mat-label>
+                        <mat-select formControlName="nominee">
+                          <mat-option value="yes">YES</mat-option>
+                          <mat-option value="no">NO</mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-1"></div>
+                <div class="col-lg-5">
+                    <mat-form-field class="example-full-width">
+                        <mat-label>Are you Endorse your name of 7/12 ?</mat-label>
+                        <mat-select formControlName="endrose">
+                          <mat-option value="yes">YES</mat-option>
+                          <mat-option value="no">NO</mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                </div>
+                <div class="col-lg-5">
+                    <mat-form-field class="example-full-width">
+                        <mat-label>Are you paid Municipal Tax?</mat-label>
+                        <mat-select formControlName="municipaltax">
+                          <mat-option value="yes">YES</mat-option>
+                          <mat-option value="no">NO</mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                </div>
+            </div>
+
+            <div class="row" style="padding-bottom: 3%;padding-top: 3%;">
+                <div class="col-lg-3"></div>
+                <div class="col-lg-3">
+                    <button type="submit" name="save"  class="btn-block buttonSave" (click)="addMember()">Save</button>
+                </div>
+                <div class="col-lg-3">
+                    <button type="reset" name="cancel" class="btn-block buttonCancel" (click)="cancel()">Cancel</button>
+                </div>
+                <div class="col-lg-3"></div>
+            </div>
+
+        </form>
+        <!--Add Member Form Ends-->
+        </div>
+    </mat-sidenav-content>
+</mat-sidenav-container>
+<ngx-spinner bdColor="rgba(51, 51, 51, 0.8)" size="default" type="ball-spin-clockwise">  
+    <p style="color: white">Adding {{ownername}} as Orchid Home Member ... </p>  
+    </ngx-spinner>  

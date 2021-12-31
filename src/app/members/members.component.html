@@ -1,0 +1,264 @@
+<mat-toolbar class="mat-elevation-z8">
+    <button mat-icon-button *ngIf="sidenav.mode === 'over'" (click)="sidenav.toggle()">
+        <mat-icon *ngIf="!sidenav.opened">
+            menu
+        </mat-icon>
+        <mat-icon *ngIf="sidenav.opened">
+            close
+        </mat-icon>
+    </button>
+    <span class="orchid">ORCHID<span class="homes">HOMES</span></span>
+</mat-toolbar>
+
+<mat-sidenav-container>
+    <mat-sidenav #sidenav="matSidenav" class="mat-elevation-z8">
+
+        <!-- <img class="avatar mat-elevation-z8" src="https://source.unsplash.com/c_GmwfHBDzk/200x200" /> -->
+
+        <h1 class="name">John Smith</h1>
+
+        <mat-divider class="sidenavDivider"></mat-divider>
+
+        <button mat-button class="menu-button" routerLink="/home">
+            <mat-icon>home</mat-icon>
+            <span>Home</span>
+        </button>
+        <button mat-button class="menu-button  nav-active" routerLink="/members">
+            <mat-icon>person</mat-icon>
+            <span>Members</span>
+        </button>
+        <button mat-button class="menu-button" routerLink="/societyexpense">
+            <mat-icon>paid</mat-icon>
+            <span>Society Expenses</span>
+        </button>
+
+        <mat-divider class="sidenavDivider"></mat-divider>
+
+        <button mat-button class="menu-button" routerLink="/notices">
+            <mat-icon>note_add</mat-icon>
+            <span>Notices</span>
+        </button>
+
+        <button mat-button class="menu-button" routerLink="/reminders">
+            <mat-icon>notifications_active</mat-icon>
+            <span>Reminders</span>
+        </button>
+
+        <button mat-button class="menu-button" routerLink="/membermessage">
+            <mat-icon> message</mat-icon>
+            <span>Messages</span>
+        </button>
+
+        <mat-divider></mat-divider>
+
+        <button mat-button class="menu-button" routerLink="/logout">
+            <mat-icon>door_back</mat-icon>
+            <span>LogOut</span>
+        </button>
+
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <div class="content mat-elevation-z8">
+            <!--header List Starts-->
+            <mat-card class="bg-light">
+                <mat-card-content>
+                    <mat-list role="list">
+                        <div class="row">
+                            <div class="col-lg-4">
+                                <mat-list-item class="membersOverview"><mat-icon>person</mat-icon> Members</mat-list-item>
+                            </div>
+                            <div class="col-lg-4">
+                                <mat-list-item class="membersOverview">
+                                    <div class="register-form">
+                                        <form class="form-inline">
+                                          <div class="form-group">
+                                              <mat-icon>search</mat-icon>
+                                              <input type="search" class="form-control" placeholder="Search">
+                                          </div>
+                                          </form>
+                                        </div>
+                                </mat-list-item>
+                            </div>
+                            <div class="col-lg-4">
+                                <mat-list-item class="buttonLabel">
+                                    <button type="button" name="add"  class="btn-block buttonAdd" (click)="addMember()">  Add New Member </button>
+                                </mat-list-item>
+                            </div>
+                        </div>
+                      </mat-list>
+                </mat-card-content>
+            </mat-card>
+            <!--header List Ends-->
+
+            <!--Title List Starts-->
+            <mat-divider class="sidenavDivider"></mat-divider>
+            <mat-card>
+                <mat-card-content>
+                    <mat-list role="list">
+                        <div class="row">
+                            <div class="col-lg-4">
+                                <mat-list-item class="memberTitle" >Name</mat-list-item>
+                            </div>
+                            <div class="col-lg-4">
+                                <mat-list-item class="memberTitle">House No.</mat-list-item>
+                            </div>
+                            <div class="col-lg-3">
+                                <mat-list-item class="memberTitle">Unit Occupied</mat-list-item>
+                            </div>
+                        </div>
+                        </mat-list>
+                </mat-card-content>
+            </mat-card>
+            <!--Title List Ends-->
+            
+            <!--Mat-List Started-->
+            <div style="background-color: white;" *ngFor="let member of members" >
+                <mat-list role="list" (click)="memberDetails(member.member_id,member.member_unit_number)">
+                <div class="row">
+                    <div class="col-lg-4">
+                        <mat-list-item role="listitem">{{member.member_name}}</mat-list-item>
+                    </div>
+                    <div class="col-lg-4">
+                        <mat-list-item role="listitem">Flat No. {{member.member_unit_number}}</mat-list-item>
+                    </div>
+                    <div class="col-lg-2">
+                        <mat-list-item role="listitem">{{member.unit_occupied_by}}</mat-list-item>
+                    </div>
+                    <div class="col-lg-1">
+                        <mat-list-item role="listitem"><mat-icon>edit</mat-icon></mat-list-item>
+                    </div>
+                    <div class="col-lg-1">
+                        <mat-list-item role="listitem"><mat-icon>delete</mat-icon></mat-list-item>
+                    </div>
+                </div>
+                </mat-list>
+                
+                <mat-divider></mat-divider>
+                <!--<mat-list role="list">
+                <div class="row">
+                    <div class="col-lg-4">
+                        <mat-list-item role="listitem">Yash Khule</mat-list-item>
+                    </div>
+                    <div class="col-lg-4">
+                        <mat-list-item role="listitem">Flat No. A/17</mat-list-item>
+                    </div>
+                    <div class="col-lg-2">
+                        <mat-list-item role="listitem">Empty</mat-list-item>
+                    </div>
+                    <div class="col-lg-1">
+                        <mat-list-item role="listitem"><mat-icon>edit</mat-icon></mat-list-item>
+                    </div>
+                    <div class="col-lg-1">
+                        <mat-list-item role="listitem"><mat-icon>delete</mat-icon></mat-list-item>
+                    </div>
+                </div>
+                </mat-list>
+                <mat-divider></mat-divider>
+                <mat-list role="list">
+                <div class="row">
+                    <div class="col-lg-4">
+                        <mat-list-item role="listitem">Yash Khule</mat-list-item>
+                    </div>
+                    <div class="col-lg-4">
+                        <mat-list-item role="listitem">Flat No. A/17</mat-list-item>
+                    </div>
+                    <div class="col-lg-2">
+                        <mat-list-item role="listitem">Empty</mat-list-item>
+                    </div>
+                    <div class="col-lg-1">
+                        <mat-list-item role="listitem"><mat-icon>edit</mat-icon></mat-list-item>
+                    </div>
+                    <div class="col-lg-1">
+                        <mat-list-item role="listitem"><mat-icon>delete</mat-icon></mat-list-item>
+                    </div>
+                </div>
+                </mat-list>
+                <mat-divider></mat-divider>
+                <mat-list role="list">
+                <div class="row">
+                    <div class="col-lg-4">
+                        <mat-list-item role="listitem">Yash Khule</mat-list-item>
+                    </div>
+                    <div class="col-lg-4">
+                        <mat-list-item role="listitem">Flat No. A/17</mat-list-item>
+                    </div>
+                    <div class="col-lg-2">
+                        <mat-list-item role="listitem">Empty</mat-list-item>
+                    </div>
+                    <div class="col-lg-1">
+                        <mat-list-item role="listitem"><mat-icon>edit</mat-icon></mat-list-item>
+                    </div>
+                    <div class="col-lg-1">
+                        <mat-list-item role="listitem"><mat-icon>delete</mat-icon></mat-list-item>
+                    </div>
+                </div>
+                </mat-list>
+                <mat-divider></mat-divider>
+                <mat-list role="list">
+                <div class="row">
+                    <div class="col-lg-4">
+                        <mat-list-item role="listitem">Yash Khule</mat-list-item>
+                    </div>
+                    <div class="col-lg-4">
+                        <mat-list-item role="listitem">Flat No. A/17</mat-list-item>
+                    </div>
+                    <div class="col-lg-2">
+                        <mat-list-item role="listitem">Empty</mat-list-item>
+                    </div>
+                    <div class="col-lg-1">
+                        <mat-list-item role="listitem"><mat-icon>edit</mat-icon></mat-list-item>
+                    </div>
+                    <div class="col-lg-1">
+                        <mat-list-item role="listitem"><mat-icon>delete</mat-icon></mat-list-item>
+                    </div>
+                </div>
+                </mat-list>
+                <mat-divider></mat-divider>
+                <mat-list role="list">
+                <div class="row">
+                    <div class="col-lg-4">
+                        <mat-list-item role="listitem">Yash Khule</mat-list-item>
+                    </div>
+                    <div class="col-lg-4">
+                        <mat-list-item role="listitem">Flat No. A/17</mat-list-item>
+                    </div>
+                    <div class="col-lg-2">
+                        <mat-list-item role="listitem">Empty</mat-list-item>
+                    </div>
+                    <div class="col-lg-1">
+                        <mat-list-item role="listitem"><mat-icon>edit</mat-icon></mat-list-item>
+                    </div>
+                    <div class="col-lg-1">
+                        <mat-list-item role="listitem"><mat-icon>delete</mat-icon></mat-list-item>
+                    </div>
+                </div>
+                </mat-list>
+                <mat-divider></mat-divider>
+                <mat-list role="list">
+                <div class="row">
+                    <div class="col-lg-4">
+                        <mat-list-item role="listitem">Yash Khule</mat-list-item>
+                    </div>
+                    <div class="col-lg-4">
+                        <mat-list-item role="listitem">Flat No. A/17</mat-list-item>
+                    </div>
+                    <div class="col-lg-2">
+                        <mat-list-item role="listitem">Empty</mat-list-item>
+                    </div>
+                    <div class="col-lg-1">
+                        <mat-list-item role="listitem"><mat-icon>edit</mat-icon></mat-list-item>
+                    </div>
+                    <div class="col-lg-1">
+                        <mat-list-item role="listitem"><mat-icon>delete</mat-icon></mat-list-item>
+                    </div>
+                </div>
+                </mat-list>-->
+        </div>
+        <!--Mat-List Ended-->
+
+        </div>
+    </mat-sidenav-content>
+</mat-sidenav-container>
+<ngx-spinner bdColor="rgba(51, 51, 51, 0.8)" size="default" type="ball-spin-clockwise">  
+    <p style="color: white">Retriving Members ... </p>  
+    </ngx-spinner>  

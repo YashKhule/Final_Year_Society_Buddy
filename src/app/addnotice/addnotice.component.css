@@ -1,0 +1,183 @@
+mat-toolbar {
+  background: #002b5c;
+  color: white;
+}
+
+mat-sidenav {
+  margin: 16px;
+  width: 250px;
+  border-right: none;
+  background: #002b5c;
+  color: white;
+  border-radius: 10px;
+  padding: 16px;
+  text-align: center;
+}
+
+.content {
+  border-radius: 10px;
+  margin: 16px;
+  margin-left: 32px;
+}
+
+mat-header-cell {
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-size: medium;
+  font-weight: bold;
+  letter-spacing: 1px;
+  color: #002b5c;
+}
+
+.addPayment {
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-size: 30px;
+  font-weight: bold;
+  color: #024591;
+  text-decoration: underline;
+}
+
+.addExpenses {
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-size: 22px;
+  font-weight: bold;
+  color: #024591;
+  padding-left: 2%;
+  cursor: pointer;
+}
+
+.amountCard {
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-size: 20px;
+  font-weight: bold;
+  color: #fff;
+  text-decoration: underline;
+  text-align: center;
+  letter-spacing: 1px;
+}
+.amount {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+  color: #fff;
+  text-align: center;
+  letter-spacing: 1px;
+}
+
+mat-divider {
+  margin-top: 16px;
+  margin-bottom: 16px;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+mat-card {
+  background-color: #002b5c;
+}
+
+mat-sidenav-container {
+  height: calc(100vh - 65px);
+}
+
+.menu-button {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  font-size: 1rem;
+}
+mat-icon {
+  margin-right: 8px;
+}
+
+.name {
+  margin-top: 8px;
+  font-weight: normal;
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+
+.nav-active {
+  background-color: #007fff;
+}
+.orchid {
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-weight: bold;
+  font-size: 28px;
+  text-decoration: underline;
+  color: #007fff;
+  text-align: center;
+  margin: 15px;
+}
+.homes {
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-weight: bold;
+  font-size: 28px;
+  text-decoration: underline;
+  color: white;
+  text-align: center;
+  margin: 15px;
+}
+
+input {
+  max-width: 100%;
+}
+
+.register-form .form-control {
+  border: none;
+  background: none;
+  border-bottom: 1px solid #007fff;
+  border-radius: 0px !important;
+}
+.register-form .form-control:focus,
+.register-form .form-control:hover {
+  border: none;
+  margin: 0 auto;
+  background: none;
+  box-shadow: none;
+  border-bottom: 1px solid #002b5c;
+  color: #002b5c;
+}
+
+.form-control::placeholder {
+  font-size: 0.95rem;
+  color: #aaa;
+  font-style: italic;
+}
+.form-control:focus {
+  box-shadow: none;
+}
+
+.form-control-underlined {
+  border-width: 0;
+  border-bottom-width: 1px;
+  border-radius: 0;
+  padding-left: 0;
+}
+.buttonSave {
+  text-align: center;
+  color: white;
+  background: #002b5c;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-weight: bold;
+  padding: 3%;
+  letter-spacing: 1px;
+  border-radius: 30px;
+}
+
+.buttonCancel {
+  text-align: center;
+  color: white;
+  background: #434343;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-weight: bold;
+  padding: 3%;
+  letter-spacing: 1px;
+  border-radius: 30px;
+}
+.example-full-width {
+  width: 80%;
+}
+.addTransaction {
+  height: calc(95vh - 65px);
+}
+
+[disabled] {
+  display: none;
+}

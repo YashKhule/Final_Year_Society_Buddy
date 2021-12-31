@@ -1,0 +1,128 @@
+mat-toolbar {
+background: #002b5c;
+color: white;
+}
+
+mat-sidenav {
+margin: 16px;
+width: 250px;
+border-right: none;
+background: #002b5c;
+color: white;
+border-radius: 10px;
+padding: 16px;
+text-align: center;
+}
+
+.content {
+border-radius: 10px;
+margin: 16px;
+margin-left: 32px;
+}
+
+mat-list-item{
+font-family: Georgia, 'Times New Roman', Times, serif;
+font-size: 18px;
+font-weight: bold;
+letter-spacing: 1px;
+}
+mat-card{
+background-color: #002b5c;
+}
+
+.expenseOverview{
+font-family: Georgia, 'Times New Roman', Times, serif;
+font-size: 25px;
+font-weight: bold;
+color: #024591;
+text-decoration: underline;
+text-align: center;
+}
+.amountCard{
+font-family: Georgia, 'Times New Roman', Times, serif;
+font-size: 20px;
+font-weight: bold;
+color: #fff;
+text-decoration: underline;
+text-align: center;
+letter-spacing: 1px;
+}
+.amount{
+font-family:Arial, Helvetica, sans-serif;
+font-size: 20px;
+font-weight: bold;
+color: #fff;
+text-align: center;
+letter-spacing: 1px;
+}
+mat-sidenav-container {
+height: calc(100vh - 65px);
+}
+
+.menu-button {
+width: 100%;
+display: flex;
+align-items: center;
+justify-content: flex-start;
+font-size: 1rem;
+}
+mat-icon {
+margin-right: 8px;
+}
+
+.avatar {
+margin-top: 16px;
+width: 100px;
+height: 100px;
+border-radius: 50%;
+}
+
+.name {
+margin-top: 8px;
+font-weight: normal;
+font-family:Georgia, 'Times New Roman', Times, serif;
+}
+
+
+mat-divider {
+margin-top: 16px;
+margin-bottom: 16px;
+background-color: rgba(255, 255, 255, 0.5);;
+}
+.nav-active{
+background-color: #007FFF;
+}
+.orchid{
+font-family: Georgia, 'Times New Roman', Times, serif;
+font-weight: bold;
+font-size: 28px;
+text-decoration: underline;
+color: #007FFF;
+text-align: center;
+margin: 15px;
+}
+.homes{
+font-family: Georgia, 'Times New Roman', Times, serif;
+font-weight: bold;
+font-size: 28px;
+text-decoration: underline;
+color: white;
+text-align: center;
+margin: 15px;
+}
+.buttonSave{
+text-align: center;
+color: white;
+background:#002b5c;
+font-family: Georgia, 'Times New Roman', Times, serif;
+font-weight: bold;
+padding: 3%;
+letter-spacing: 1px;
+border-radius: 30px;
+}
+
+.sidenavDivider {
+margin-top: 16px;
+margin-bottom: 16px;
+background-color: rgba(255, 255, 255, 0.5);
+}

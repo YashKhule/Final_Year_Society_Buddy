@@ -1,0 +1,158 @@
+<mat-toolbar class="mat-elevation-z8">
+    <button mat-icon-button *ngIf="sidenav.mode === 'over'" (click)="sidenav.toggle()">
+        <mat-icon *ngIf="!sidenav.opened">
+            menu
+        </mat-icon>
+        <mat-icon *ngIf="sidenav.opened">
+            close
+        </mat-icon>
+    </button>
+    <span class="orchid">ORCHID<span class="homes">HOMES</span></span>
+</mat-toolbar>
+
+<mat-sidenav-container >
+    <mat-sidenav #sidenav="matSidenav" class="mat-elevation-z8">
+
+        <!-- <img class="avatar mat-elevation-z8" src="https://source.unsplash.com/c_GmwfHBDzk/200x200" /> -->
+
+        <h1 class="name">John Smith</h1>
+
+        <mat-divider></mat-divider>
+
+        <button mat-button class="menu-button nav-active" routerLink="/home">
+            <mat-icon>home</mat-icon>
+            <span>Home</span>
+        </button>
+        <button mat-button class="menu-button " routerLink="/members">
+            <mat-icon>person</mat-icon>
+            <span>Members</span>
+        </button>
+        <button mat-button class="menu-button" routerLink="/societyexpense">
+            <mat-icon>paid</mat-icon>
+            <span>Society Expenses</span>
+        </button>
+
+        <mat-divider></mat-divider>
+
+        <button mat-button class="menu-button" routerLink="/notices">
+            <mat-icon>note_add</mat-icon>
+            <span>Notices</span>
+        </button>
+
+        <button mat-button class="menu-button" routerLink="/reminders">
+            <mat-icon>notifications_active</mat-icon>
+            <span>Reminders</span>
+        </button>
+
+        <button mat-button class="menu-button" routerLink="/membermessage">
+            <mat-icon> message</mat-icon>
+            <span>Messages</span>
+        </button>
+
+        <mat-divider></mat-divider>
+
+        <button mat-button class="menu-button" routerLink="/logout">
+            <mat-icon>door_back</mat-icon>
+            <span>LogOut</span>
+        </button>
+
+    </mat-sidenav>
+    <mat-sidenav-content class="bg-light">
+        <!--Add Transaction Form Div Starts-->
+            <div class="content mat-elevation-z8 addTransaction" >
+            <!--Add Transaction Form Start-->
+            <div class="row">
+                <div class="col-lg-12" style="margin-top: 5%; text-align: center;" >
+                    <span class="addPayment">Add Transaction Details</span>
+                    <span class="addExpenses" (click)="addExpenses()">Add Society Expenses</span>
+                </div>
+            </div>
+            <form style="padding-top: 2%;" [formGroup]="requiredForm"  (ngSubmit)="savePayment()" >
+
+                <div class="row">
+                    <div class="col-lg-1"></div>
+                    <div class="col-lg-11">
+                            <mat-form-field class="example-full-width">
+                                <mat-label>Owner Name</mat-label>
+                                <input matInput type="text" placeholder="Enter Name" formControlName="ownername">
+                            </mat-form-field>
+                       </div>
+
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-1"></div>
+                    <div class="col-lg-3">
+                        <mat-form-field class="example-full-width">
+                            <mat-label>House No.</mat-label>
+                            <input matInput  type="number" placeholder="00" formControlName="houseno">
+                        </mat-form-field>
+                    </div>
+                    <div class="col-lg-3">
+                        <mat-form-field class="example-full-width">
+                            <mat-label>Amount Paid</mat-label>
+                            <input matInput  type="number" placeholder="00" formControlName="amountpaid">
+                        </mat-form-field>
+                    </div>
+                    <div class="col-lg-3">
+                        <mat-form-field class="example-full-width">
+                            <mat-label>Month</mat-label>
+                            <mat-select formControlName="month">
+                              <mat-option value="jan">January</mat-option>
+                              <mat-option value="feb">February </mat-option>
+                              <mat-option value="march">March</mat-option>
+                              <mat-option value="april">April</mat-option>
+                              <mat-option value="may">May</mat-option>
+                              <mat-option value="june">June</mat-option>
+                              <mat-option value="july">July</mat-option>
+                              <mat-option value="aug">August</mat-option>
+                              <mat-option value="sept">September</mat-option>
+                              <mat-option value="oct">October</mat-option>
+                              <mat-option value="nov">November</mat-option>
+                              <mat-option value="dec">December</mat-option>
+                            </mat-select>
+                          </mat-form-field>
+                       </div>
+                </div>
+    
+                <div class="row">
+                    <div class="col-lg-1"></div>
+                    <div class="col-lg-5">
+                            <mat-form-field class="example-full-width">
+                                <mat-label>Payment Type</mat-label>
+                                <mat-select formControlName="paymentType">
+                                    <mat-option value="cash">Cash</mat-option>
+                                    <mat-option value="UPI">UPI</mat-option>
+                                    <mat-option value="cheque">Chaque</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                    </div>
+
+                    <div class="col-lg-5">
+                            <mat-form-field class="example-full-width">
+                                <mat-label>Payment Date</mat-label>
+                                <input matInput  type="date" formControlName="date">
+                            </mat-form-field>
+                    </div>
+                </div>
+    
+                <div class="row" style="padding-bottom: 3%;padding-top: 3%;">
+                    <div class="col-lg-3"></div>
+                    <div class="col-lg-3">
+                        <button  name="save"  class="btn-block buttonSave" (click)="addTransaction()">Save</button>
+                    </div>
+                    <div class="col-lg-3">
+                        <button type="reset" name="cancel" class="btn-block buttonCancel" (click)="cancel()">Cancel</button>
+                    </div>
+                    <div class="col-lg-3"></div>
+                </div>
+    
+            </form>
+            <!--Add Transaction Form Ends-->
+        </div>
+        <!--Add Transaction Form Div Ends-->
+    </mat-sidenav-content>
+</mat-sidenav-container>
+<ngx-spinner bdColor="rgba(51, 51, 51, 0.8)" size="default" type="ball-spin-clockwise">  
+    <p style="color: white">Recording Transaction </p>  
+    </ngx-spinner>  
